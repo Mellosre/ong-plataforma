@@ -1,0 +1,244 @@
+/* --- Importação de Fonte e Variáveis de Cor --- */
+
+/* Importando uma fonte mais moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --cor-primaria: #005a9c; /* Um azul para a ONG */
+  --cor-secundaria: #28a745; /* O verde que você já usava */
+  --cor-fundo: #f4f4f4;
+  --cor-texto: #333;
+  --cor-branca: #ffffff;
+  --sombra-padrao: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos Gerais --- */
+* {
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif; /* Usando a nova fonte */
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: var(--cor-branca); /* Um fundo mais limpo */
+  color: var(--cor-texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  padding: 20px;
+  
+  /*Centralizando o conteúdo principal */
+  /* O conteúdo principal terá no máximo 1000px e ficará centralizado */
+  max-width: 1000px;
+  margin: 20px auto; /* 20px em cima/baixo, auto nas laterais */
+  flex: 1; 
+}
+
+section {
+  margin-bottom: 30px; /* Mais espaço entre as seções */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+h1, h2, h3 {
+  color: var(--cor-primaria); /* Cor primária nos títulos */
+}
+
+/* ---Layout do Header com Flexbox --- */
+header {
+  background-color: var(--cor-branca);
+  padding: 1.5em 2em; /* Mais preenchimento */
+  border-bottom: 2px solid var(--cor-fundo);
+  
+  /* Novas propriedades de Flexbox */
+  display: flex;
+  justify-content: space-between; /* Espaça os itens (logo/título de um lado, nav do outro) */
+  align-items: center; /* Alinha verticalmente no centro */
+  flex-wrap: wrap; /* Permite quebrar a linha em telas pequenas */
+}
+
+header h1 {
+  margin: 0;
+  margin-left: 15px; /* Espaço entre o logo e o título */
+  font-size: 2em;
+}
+
+/* Agrupando logo e título */
+.logo-titulo {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Menu de Navegação --- */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Transforma os <li> em itens flex */
+  gap: 15px; /* Espaço entre os links */
+}
+
+nav ul li {
+  display: inline; 
+  margin-right: 0; 
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--cor-primaria);
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; /* Transição suave */
+}
+
+/* [NOVO] Efeito Hover para o Menu */
+nav ul li a:hover,
+nav ul li a.ativo { /* Classe 'ativo' para a página atual */
+  background-color: var(--cor-primaria);
+  color: var(--cor-branca);
+}
+
+/* --- Estilos do Formulário (cadastro.html) --- */
+form {
+  max-width: 700px; /* Um pouco mais largo */
+  margin: 0 auto;
+  background-color: var(--cor-branca);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: var(--sombra-padrao);
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+fieldset legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--cor-primaria);
+  padding: 0 10px; /* Espaçamento para a legenda não colar na borda */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Efeito de Foco  */
+input:focus, select:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 5px rgba(0, 90, 156, 0.3);
+  outline: none; /* Remove a borda padrão feia */
+}
+
+/* --- Botão --- */
+button {
+  display: block; /* Faz o botão ocupar a largura */
+  width: 100%;
+  padding: 12px 20px;
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s; /* Transição suave */
+}
+
+/*Efeito Hover para o Botão */
+button:hover {
+  background-color: #218838; /* O verde mais escuro que você tinha */
+  transform: scale(1.02); /* Efeito de leve "crescimento" */
+}
+
+/* ---Layout em Grid (projetos.html) --- */
+.projetos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; /* Espaço entre os cards */
+}
+
+.projetos-lista article {
+  background-color: var(--cor-branca);
+  border-radius: 8px;
+  box-shadow: var(--sombra-padrao);
+  overflow: hidden; /* Garante que a imagem não "vaze" */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transição suave */
+}
+
+/*  Efeito Hover para os Cards */
+.projetos-lista article:hover {
+  transform: translateY(-5px); /* Levanta o card */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.projetos-lista img {
+  width: 100%; /* Faz a imagem ocupar 100% da largura do card */
+  height: 200px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.projetos-lista h3,
+.projetos-lista p {
+  padding: 0 20px; /* Espaçamento interno para o texto */
+}
+
+.projetos-lista p {
+  padding-bottom: 20px;
+}
+
+/* --- Layout (index.html) --- */
+.bem-vindo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Quebra a linha em telas menores */
+}
+
+.bem-vindo div {
+  flex: 1; /* Ocupa o espaço disponível */
+  min-width: 250px; /* Largura mínima antes de quebrar */
+}
+
+.bem-vindo img {
+  max-width: 100%;
+  width: 300px; 
+  border-radius: 8px;
+  box-shadow: var(--sombra-padrao);
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #333; 
+  color: var(--cor-fundo);
+  text-align: center;
+  padding: 20px;
+  margin-top: auto; 
+
+footer p {
+  margin: 5px 0;
+}
